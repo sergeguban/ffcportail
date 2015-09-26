@@ -1,0 +1,17 @@
+TRUNCATE TABLE `clubs` ;
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES( 'CRBK','CRBK','Cercle des Régates Bruxelles Kayak'); 
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('RBKC','RBKC','Royal Brussels Kayak Club');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('CNTM','CNTM','Club Nautique Tyberport Manage');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('KCCN','KCCN','Kayak Club Charleroi Nivelles');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('SKC','SKC','SNEF Kayak Club');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('CKT','CKT','kayak Club de Thieu');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('HSP','HSP','Haute Sambre Paddling');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('LKC','LKC','Legia Kayak Club');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('RMCS','RMCS','Royal Mava Club Sauheid');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('VKC','VKC','Vesdre Kayak Club');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('CNCA','CNCA','Club Nautique du Coeur des Ardennes');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('H2O','H2O','Hawaiiansports 2 Outes');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('LKCC','LKCC','Liry Kayak Club Chiny');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('KCLW','KCLW','Kayak Club Lesse Wanlin');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('RCNML','RCNML','Royal Cercle Nautique Meuse et Lesse');
+INSERT INTO `clubs` (`id` , `acronyme` , `description`)VALUES('BBC','BBC','Beez Boating Club');

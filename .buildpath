@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="build/ffcportail-2014-01-04_08_28_05/ffcportail/app"/>
+	<buildpathentry kind="src" path="build/ffcportail-2014-01-04_08_28_05/www/ffcportail"/>
+	<buildpathentry kind="src" path="build/ffcportail-2014-01-06_06_13_18/ffcportail/app"/>
+	<buildpathentry kind="src" path="build/ffcportail-2014-01-06_06_13_18/www/ffcportail"/>
+	<buildpathentry kind="src" path="src/ffcPortail/app"/>
+	<buildpathentry kind="src" path="src/ffcPortail/lib/Cake"/>
+	<buildpathentry kind="src" path="src/www/ffcportail"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

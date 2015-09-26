@@ -1,0 +1,513 @@
+/* Blocks and positioning */
+#blockMenu {
+	z-index: 5;
+	background-image: url(../_img/header.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	text-align: center;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 264px;
+	margin-right: auto;
+	margin-left: auto;
+	top: 0px;
+	left: 0px;
+}
+/* Layout of content */
+#blockContent {
+	width: 100%;
+}
+#tableContent {
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+#tableContent #section {
+	vertical-align: top;
+	text-align: left;
+	width:210px;
+}
+#tableContent TD.content {
+	padding: 5px 5px 5px;
+	vertical-align: top;
+	text-align: left;
+}
+#tableContent TD TD {
+	padding: 2px;
+}
+#tableContent TD#sectionMenu {
+	width: 210px;
+	padding: 220px 5px 5px;
+	vertical-align:top;
+}
+#tableContent TD#columnProfilePhoto {
+	width: 210px;
+	padding: 44px 0 0 11px;
+	text-align:left;
+	vertical-align:top;
+}
+#tableContent #sectionPhoto {
+	width: 210px;
+	padding: 40px 0 0 11px;
+	text-align:left;
+}
+#tableContent #cadrePhotoRubrique {
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 4px 4px 0 4px;
+	margin: 0;
+}
+
+/* Submenu */
+#submenu {
+	background-image: url(../_img/submenuBorder.gif);
+	background-repeat: repeat-y;
+	background-position: right center;
+	margin: 0;
+	padding: 0;
+}
+#submenu LI {
+	list-style-type: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 20px;
+	font-variant: small-caps;
+	text-align: right;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+#submenu LI.focus {
+	color: #FFFFFF;
+	font-weight: bold;
+	background-image: url(../_img/submenuFocus.gif);
+}
+
+/* Link for connection and profile */
+#linkMember {
+	z-index:50;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color:#CC0000;
+}
+#linkMember A {
+	color: #FFFFFF;
+}
+
+
+
+
+
+/* Special */
+
+.dataLines {
+	border-bottom: 1px solid #CCCCCC;
+}
+.dataLines TD {
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	vertical-align: top;
+}
+
+A {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+A.write {
+	background-image: url(../_img/messageWrite.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 17px;
+}
+A.modify {
+	background-image: url(../_img/messageModify.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 17px;
+}
+A.reply {
+	background-image: url(../_img/messageReply.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 17px;
+}
+A.delete {
+	background-image: url(../_img/messageDelete.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.close {
+	background-image: url(../_img/messageClose.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.reOpen {
+	background-image: url(../_img/messageReOpen.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.remove {
+	background-image: url(../_img/messageRemove.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.undo {
+	background-image: url(../_img/undo.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.notchecked {
+	background-image: url(../_img/notchecked.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.createList {
+	background-image: url(../_img/messageCreateList.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 13px;
+}
+A.subscribe {
+	background-image: url(../_img/messageSubscribe.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+A.unsubscribe {
+	background-image: url(../_img/messageUnsubscribe.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+
+/******************************************************************* Message ********************************************************/
+
+
+#message {
+	padding-top: 10px;
+	padding-left: 10px;
+	background-color:#FFFFFF;
+	background-image: url(../_img/messageHeader.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+#message #authorPhoto {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 80;
+}
+#message #header IMG {
+	display: block;
+	float: left;
+}
+#message #header P {
+	margin: 0 0 0 0px;
+	padding: 0;
+}
+#message #header LABEL {
+	color:#666666;
+	padding-left: 10px;
+}
+#message #text {
+	position: relative;
+	margin-top: 15px;
+	padding-right: 20px;
+	padding-bottom: 15px;
+	background-color:#FFFFFF;
+	background-image: url(../_img/messageFooter.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+#message #text H1 {
+	border: none #FFFFFF;
+}
+.messageActions {
+	margin-bottom: 10px;
+}
+.messageActions A {
+	margin-right: 20px;
+}
+.messageActions A.delete {
+	display:block;
+	float:right;
+}
+.messagePath {
+	margin-bottom: 5px;
+}
+.messagePath A {
+	font-size: 11px;
+	padding-left: 12px;
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+}
+.messagePath A.readed {
+	background-image: url(../_img/listMsgReaded.gif);
+	color: #777777;
+	font-weight: normal;
+}
+.messagePath A.focus {
+	background-image: url(../_img/listMsgReaded.gif);
+	color: #FF0000;
+	font-weight: normal;
+}
+.messagePath A.new {
+	background-image: url(../_img/listMsgNew.gif);
+	color: #000000;
+	font-weight: bold;
+}
+.messagePath A.updated {
+	background-image: url(../_img/listMsgUpdated.gif);
+	color: #333333;
+	font-weight: bold;
+}
+
+/* Styles inside the message */
+
+#message #text H1 {
+	color: #FFFFFF;
+	background-color: #553047;
+	font-size: 14px;
+	margin: 0 0 10px 0;
+	padding: 3px;
+}
+#message #text H2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #553047;
+	font-size: 15px;
+	margin: 10px 0 8px 0;
+	padding:0;
+}
+#message #text H3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: black;
+	background-color: white;
+	font-size: 13px;
+	margin: 10px 0 5px 0;
+	padding:0;
+}
+
+/* Subscribe list (binded to a message */
+
+DIV.subscribeList {
+	background-color:#FFFFFF;
+	background-image: url(../_img/subscrListBg.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+	min-width:200px;
+	min-height:50px;
+	padding: 10px;
+	border: 1px solid #D0D3DB;
+}
+DIV.subscribeList H2 {
+	color: #182750;
+	font-size: 13px;
+	padding-top: 0;
+	padding-bottom:10px;
+}
+DIV.subscribeList H2 .actions {
+	position: relative;
+	display: block;
+	float: right;
+	font-weight: normal;
+}
+DIV.subscribeList H2 .actions A {
+	margin-left: 10px;
+}
+DIV.subscribeList A.remove:hover {
+	text-decoration: none;
+}
+DIV.subscribeList TR.subscribeLine {
+	border: 1px solid #CC0000;
+}
+
+/* Calendar */
+
+TABLE.calendar {
+	border: 1px solid #37386C;
+}
+TABLE.calendar TH {
+	text-align: center;
+}
+TABLE.calendar TR TD {
+	width: 14%;
+}
+TABLE.calendar TR TD.day {
+	background-color: #F5F3E0;
+	vertical-align: top;
+}
+TABLE.calendar TR TD.past {
+	background-color: #D8CF85;
+}
+TABLE.calendar TR TD.current {
+	background-color: #E8E2B5;
+	border: 2px solid #CC0000;
+}
+TABLE.calendar TD.day A {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 11px;
+}
+TABLE.calendar TD.disabled {
+}
+
+/* Event types (agenda and messages) */
+.evenCompetition {
+	background-image: url(../_img/pagaieRouge.png);
+}
+.evenEntrainement {
+	background-image: url(../_img/pagaieOrange.png);
+}
+.evenSoiree {
+	background-image: url(../_img/pagaieBleu.png);
+}
+.evenReunion {
+	background-image: url(../_img/pagaieMauve.png);
+}
+.evenDivers {
+	background-image: url(../_img/pagaieVert.png);
+}
+.evenInitiation {
+	background-image: url(../_img/pagaieRose.png);
+}
+.evenStage {
+	background-image: url(../_img/pagaieJaune.png);
+}
+
+.calendar .evenCompetition,
+.calendar .evenSoiree, 
+.calendar .evenEntrainement,
+.calendar .evenReunion,
+.calendar .evenStage,
+.calendar .evenInitiation,
+.calendar .evenDivers {
+	background-repeat: no-repeat;
+	background-position: left top;
+	list-style-position: inside;
+	text-indent: 20px;
+}
+
+/* Radio button for event type */
+
+LABEL.evenCompetition,
+LABEL.evenSoiree, 
+LABEL.evenEntrainement,
+LABEL.evenReunion,
+LABEL.evenStage,
+LABEL.evenInitiation,
+LABEL.evenDivers {
+	background-repeat:no-repeat;
+	background-position: left top;
+	padding-left: 15px;
+	text-indent: 0;
+}
+
+/* Special texts */
+
+P.error {
+	font-weight: bold;
+	color: #CC0000;
+	background-color: #FFDDDD;
+	padding: 2px;
+	border: 1px solid #CC0000;
+}
+P.message {
+	font-weight: bold;
+	color: #00CC00;
+	background-color: #DDFFDD;
+	padding: 2px;
+	border: 1px solid #00CC00;
+}
+
+/* Background for the (long) list of contacts */
+
+.contactList {
+	/* background-image:url(../_img/bgWhiteTransp.gif); */
+	background-color:#FFFFFF;
+}
+
+DIV.brevet {
+	background-color:#FFFFFF;
+	background-image: url(../_img/subscrListBg.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+	vertical-align: top;
+	margin: 10px;
+	min-height:50px;
+	padding: 10px;
+	border: 1px solid #D0D3DB;
+	width: 650px;
+}
+DIV.brevet H2 {
+	color: #182750;
+	font-size: 20px;
+	padding-top: 0;
+	padding-bottom:10px;
+}
+DIV.brevet H2 .actions {
+	position: relative;
+	display: block;
+	float: right;
+	font-weight: normal;
+}
+DIV.brevet A.remove {
+	position: relative;
+	padding-top: 0;
+}
+DIV.brevet TABLE TR td {
+	background-color:#FFFFFF;
+	border: 1px solid #000000;
+}
+DIV.brevet TABLE TR td.description {
+	background-color:#FFFFFF;
+	border: 1px solid #000000;
+	width: 350px;	
+}
+DIV.brevet TABLE TR.head {
+	background-color:#FFFFFF;
+}
+
+
+DIV.brevet TR.subscribeLine {
+	border: 1px solid #CC0000;
+}
+
+
+DIV.confirmed {
+	background-color:#FFFFFF;
+	background-image: url(../_img/icon_notificationConfirmation.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 1px;
+	height:25px;
+	padding: 1px;
+	width: 25px;
+}
+
+DIV.notchecked {
+	background-color:#FFFFFF;
+	background-image: url(../_img/notchecked.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 1px;
+	height:25px;
+	padding: 1px;
+	width: 25px;
+}

@@ -1,0 +1,111 @@
+.messages A {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+}
+.messages A:hover {
+	text-decoration: underline;
+}
+UL.messages {
+	margin: 0;
+	padding: 0;
+}
+.messages UL {/* Padding of each level */
+	margin: 0 0 0 15px;
+	padding-left: 0px;
+}
+.messages LI {/* All lines */
+	margin: 0 0 0 5px;
+	padding: 0;
+	list-style-type: none;
+	list-style-position: outside;
+}
+.messages LI.root LI {/* Response */
+	padding-left: 0px;
+	margin-left: 5px;
+	font-size: 11px;
+}
+.messages LI.root {/* Subject */
+	padding-left: 8px;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	background-repeat: no-repeat;
+	background-position: left top;
+	list-style-position: inside;
+}
+.messages LI.root.bg1 {/* Backround 1 */
+	background-image: url(../_img/messageBlockBg1.png);
+	background-color:#FFFFFF;
+}
+.messages LI.root.bg2 {/* Backround 2 */
+	background-image: url(../_img/messageBlockBg2.png);
+	background-color:#FFFFFF;
+}
+.messages LI.root.evenCompetition {
+	list-style-image: url(../_img/pagaieRouge.png);
+}
+.messages LI.root.evenEntrainement {
+	list-style-image: url(../_img/pagaieOrange.png);
+}
+.messages LI.root.evenSoiree {
+	list-style-image: url(../_img/pagaieBleu.png);
+}
+.messages LI.root.evenReunion {
+	list-style-image: url(../_img/pagaieMauve.png);
+}
+.messages LI.root.evenDivers {
+	list-style-image: url(../_img/pagaieVert.png);
+}
+.messages LI.root.evenInitiation {
+	list-style-image: url(../_img/pagaieRose.png);
+}
+.messages LI.root.evenStage {
+	list-style-image: url(../_img/pagaieJaune.png);
+}
+.messages LI.root A {/* First message (title) */
+	font-weight: bold;
+}
+.messages LI.root LI.new {/* New response */
+	list-style-image: url(../_img/listMsgNew.gif);
+	font-weight: bold;
+}
+.messages A.new {/* Line of a new response */
+	color: #000000;
+	font-weight: bold;
+}
+.messages LI.readed {/* Response readed */
+	list-style-image: url(../_img/listMsgReaded.gif);
+}
+.messages A.readed {/* Line of a message readed */
+	color: #777777;
+	font-weight: normal;
+}
+.messages A.focus {/* Line of a message readed */
+	color: #FFFFFF;
+	background-color:#CC0000;
+	font-weight: normal;
+	padding-left:2px;
+	padding-right:2px;
+}
+.messages A:hover.focus {
+	text-decoration:none;
+	cursor:text;
+}
+.messages LI.updated {/* Response updated */
+	list-style-image: url(../_img/listMsgUpdated.gif);
+}
+.messages A.updated {/* Line of a message updated */
+	color: #333333;
+	font-weight: bold;
+}
+.messages LI .withList {
+	background-image: url(../_img/withList.gif);
+	background-repeat: no-repeat;
+	background-position: 0 2px;
+	margin-left: 5px;
+	padding-left: 11px;
+	color: #553047;
+	font-weight: normal;
+	font-size: 11px;
+}

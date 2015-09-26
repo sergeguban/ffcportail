@@ -1,0 +1,8 @@
+09/2015
+
+passage à php 5.4  pour s'alligner sur ovh (PHP Version 5.4.38)
+une seul erreur lors de ce passage sur la gestion de session
+
+comment les lignes //'session.auto_start' => 0, around line 560
+
+lib\Cake\Model\Datasource\CakeSession.php
