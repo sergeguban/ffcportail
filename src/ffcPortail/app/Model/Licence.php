@@ -61,13 +61,13 @@ class Licence extends AppModel {
 
 	private function addCategory(&$licences ){
 		foreach ($licences as &$licence) {
-			$licence['Licence']['category'] = $this->getCategoryFromBirthDate($licence['User']['date_naissance'],2014);
+			$licence['Licence']['category'] = $this->getCategoryFromBirthDate($licence['User']['date_naissance'],$this->currentYear);
 		}
 			
 	}
 	public function getLicenceByIdAndAppendCategory($id){
 		$licence=$this->getLicenceById($id);
-		$licence[0]['Licence']['category'] = $this->getCategoryFromBirthDate($licence[0]['User']['date_naissance'],2014);
+		$licence[0]['Licence']['category'] = $this->getCategoryFromBirthDate($licence[0]['User']['date_naissance'],$this->currentYear);
 		return $licence;
 	}
 	
