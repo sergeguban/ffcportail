@@ -44,7 +44,7 @@
          <th>Lieu naissance</th>
          <th>Mail</th>
          <th>Date de la demande</th>
-         <th>Discipline</th>
+         <th>Type</th>
          <th>FFC Identifiant</th>
          <th>A Produire</th>
          <th>Supprimer</th>
@@ -63,7 +63,7 @@
       <td><?php echo $licenceValider['User']['lieu_de_naissance']?></td>
       <td><?php echo $licenceValider['User']['mail']?></td>
       <td><?php echo $licenceValider['Membership']['l_created']?></td>
-      <td><?php echo AppController::getLicenceString($licenceValider['Membership'])?></td>
+      <td><?php echo $licenceValider['Membership']['l_type']?></td>
       <td><?php echo $licenceValider['User']['ffc_id']?></td>
       <td>
        <?php if($licenceValider['User']['ffc_id'] != null) { 
@@ -106,7 +106,7 @@
    }
 
    ?>
-<h2>Licences  <?php echo $currentYear?> produites</h2>
+<h2>Licences  <?php echo $currentYear?> produite</h2>
 <p>Ci-dessous la liste des licences déjà produites et envoyées</p>
 <table class="tablesorterReprint">
    <thead>
@@ -117,7 +117,7 @@
          <th>Mail</th>
          <th>Date de la demande</th>
          <th>Date de production</th>
-         <th>Discipline</th>
+         <th>Type</th>
          <th>Numéro</th>
          <th>Reprint</th>
       </tr>
@@ -134,7 +134,7 @@
       <td><?php echo $licenceProduced['User']['mail']?></td>
       <td><?php echo $licenceProduced['Membership']['l_created']?></td>
       <td><?php echo $licenceProduced['Membership']['l_modified']?></td>
-      <td><?php echo AppController::getLicenceString($licenceProduced['Membership'])?></td>
+      <td><?php echo $licenceProduced['Membership']['l_type']?></td>
       <td><?php echo $licenceProduced['User']['ffc_id']."/".$licenceProduced['Membership']['l_yearly_number']?></td>
       <td><?php echo $this->Html->link('<div class="icon-print"> </div>',
       array('controller' => 'manageLicences','action' => 'reproduceLicence',  $licenceProduced['Membership']['id']),

@@ -1,12 +1,11 @@
 <?php
 App::import('Vendor','tcpdf/tcpdf');
-App::import('Controller','App');
 $tcpdf=new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 $tcpdf->SetCreator(PDF_CREATOR);
 $tcpdf->SetAuthor('Fédération Francophone de Canoë');
 $tcpdf->SetTitle('Licences FFC ' . $currentYear);
-$tcpdf->SetSubject('Licence FFC');
+$tcpdf->SetSubject('Liccence FFC');
 $tcpdf->SetKeywords('Licences');
 
 // set default header data
@@ -44,7 +43,7 @@ $tcpdf->SetFont('helvetica', '', 8);
 // add a page
 $tcpdf->AddPage();
 
-$header = array('Nom','Prénom','Date Naissance', 'Discipline', 'Catégorie','Club','Licence');
+$header = array('Nom','Prénom','Date Naissance', 'Catégorie','Club','Licence');
 
 $tcpdf->SetFillColor(200);
 $tcpdf->SetTextColor(255);
@@ -52,7 +51,7 @@ $tcpdf->SetDrawColor(128, 0, 0);
 $tcpdf->SetLineWidth(0.3);
 $tcpdf->SetFont('', 'B', 8);
 // Header
-$w = array(30, 30,25,40,20, 15, 15);
+$w = array(30, 30,25,20, 15, 15);
 $num_headers = count($header);
 for($i = 0; $i < $num_headers; ++$i) {
 	$tcpdf->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -70,11 +69,9 @@ foreach ($licencesProduced as $licenceProduced){
 	$tcpdf->Cell($w[0], $h, $licenceProduced['User']['nom'], 'LR', 0, 'L', $fill);
 	$tcpdf->Cell($w[1], $h, $licenceProduced['User']['prenom'], 'LR', 0, 'L', $fill);
 	$tcpdf->Cell($w[2], $h, $licenceProduced['User']['date_naissance'], 'LR', 0, 'L', $fill);
-	$discipline_string = AppController::getLicenceString($licenceProduced['Membership']);
-	$tcpdf->Cell($w[3], $h, $discipline_string, 'LR', 0, 'L', $fill);
-	$tcpdf->Cell($w[4], $h, $licenceProduced['Membership']['category'], 'LR', 0, 'R', $fill);
-	$tcpdf->Cell($w[5], $h, $licenceProduced['Membership']['club'], 'LR', 0, 'R', $fill);
-	$tcpdf->Cell($w[6], $h, $licenceProduced['User']['ffc_id']."/".$licenceProduced['Membership']['l_yearly_number'], 'LR', 0, 'R', $fill);
+	$tcpdf->Cell($w[3], $h, $licenceProduced['Membership']['category'], 'LR', 0, 'R', $fill);
+	$tcpdf->Cell($w[4], $h, $licenceProduced['Membership']['club'], 'LR', 0, 'R', $fill);
+	$tcpdf->Cell($w[5], $h, $licenceProduced['User']['ffc_id']."/".$licenceProduced['Membership']['l_yearly_number'], 'LR', 0, 'R', $fill);
 	$tcpdf->Ln();
 	$fill=!$fill;
 

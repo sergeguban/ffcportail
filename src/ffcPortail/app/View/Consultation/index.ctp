@@ -1,4 +1,3 @@
-<?php App::import('Controller','App');?>
 <script>
   
    $(function() { 
@@ -47,7 +46,7 @@
 <table class="tablesorter">
   <thead> 
     <tr> 
-       <th>Nom</th> <th>Prénom</th><th>Catégorie</th><th>Discipline</th><th>Date Naissance</th><th>Club</th><th>Licence</th>
+       <th>Nom</th> <th>Prénom</th><th>Catégorie</th><th>Date Naissance</th><th>Club</th><th>Licence</th>
     </tr> 
  </thead>
  
@@ -62,7 +61,6 @@
     <td><?php echo  $licenceProduced['User']['nom']?></td>
     <td><?php echo  $licenceProduced['User']['prenom']?></td>
     <td><?php echo  $licenceProduced['Membership']['category']?></td>
-    <td><?php  echo AppController::getLicenceString($licenceProduced['Membership'])?></td>
     <td><?php echo  $licenceProduced['User']['date_naissance']?></td>
     <td><?php echo  $licenceProduced['Membership']['club']?></td>
     <td><?php echo $licenceProduced['User']['ffc_id']."/".$licenceProduced['Membership']['l_yearly_number']?></td>

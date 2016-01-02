@@ -62,15 +62,6 @@ class WelcomeController extends AppController {
       $this->set('notificationsWait',$notificationsWait);
       $this->set('notificationsWaitList',$notificationsWaitList);
       $this->set('notificationsOk',$notificationsOk);
-      
-      $possible_competition_licences = array(
-      		'slalom' => 'slalom',
-      		'downriver' => 'descente',
-      		'polo' => 'kayak-polo',
-      		'marathon' => 'marathon',
-      		'flatwater' => 'course en ligne'
-      );
-      $this->set('possible_competition_licences',$possible_competition_licences);
    }
 
    public function manageNotification($userId = -1){

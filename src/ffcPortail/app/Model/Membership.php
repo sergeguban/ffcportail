@@ -52,8 +52,8 @@ private $categories = array(10 => "pupil",
 
 	public function getAllLicenceCompetition($year){
 		$db = $this->getDataSource();
-		$licencesCompetition = $db->fetchAll( 'SELECT Membership.*, User.id, User.ffc_id, User.nom, User.prenom, User.mail,User.date_naissance, User.lieu_de_naissance from  memberships as Membership left join users as User on Membership.user_id = User.id  where Membership.licence = ? and Membership.l_status = ? and (Membership.l_type= ? or Membership.l_type=?)  and Membership.year =? order by nom  ',
-		array(1, 'produced','Competition','Disciplines',$year));
+		$licencesCompetition = $db->fetchAll( 'SELECT Membership.*, User.id, User.ffc_id, User.nom, User.prenom, User.mail,User.date_naissance, User.lieu_de_naissance from  memberships as Membership left join users as User on Membership.user_id = User.id  where Membership.licence = ? and Membership.l_status = ? and Membership.l_type= ?  and Membership.year =? order by nom  ',
+		array(1, 'produced','Competition',$year));
 
 		$this->addCategory($licencesCompetition,$year);
 		return $licencesCompetition;

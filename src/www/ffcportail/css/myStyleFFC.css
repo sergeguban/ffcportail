@@ -464,7 +464,6 @@ input[type=checkbox] {
 }
 div.checkbox label {
 	display: inline;
-	margin-left: 10px;
 }
 input[type=radio] {
 	float:left;

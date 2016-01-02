@@ -35,7 +35,7 @@ class AppController extends Controller {
 
 	var $uses= array('Membership');
 	
-	public $currentYear = 2016;
+	public $currentYear = 2015;
 
 	public $components = array(
         'Session','Acl',
@@ -117,19 +117,6 @@ class AppController extends Controller {
 		return $roles;
 
 	}
-	
-	public function getLicenceString($membership){
-		$string = '';
-		if($membership['l_type']=='Competition')$string='Compétition';
-		else if($membership['l_type']=='Tourisme')$string='Tourisme';
-		else{
-			$string = (($membership['l_downriver']?'descente, ':'').($membership['l_slalom']?'slalom, ':'').($membership['l_flatwater']?'course en ligne, ':'').($membership['l_marathon']?'marathon, ':'').($membership['l_polo']?'kayak-polo, ':''));
-			$string = substr($string,0,-2);
-		}
-		
-		return $string;
-	}
-	
 
 
 	public function isUserInAcl($userId){

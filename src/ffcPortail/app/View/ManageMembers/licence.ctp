@@ -1,4 +1,3 @@
-<?php App::import('Controller', 'App');?>
 <script type="text/javascript">
 //<!--
 $(function() { 
@@ -27,7 +26,7 @@ Sélectionner ci-dessous un membre pour qui vous désirez introduire une demande
 <table class="list">
   <thead> 
     <tr> 
-     <th>Tourisme</th><th>Compétition Générale</th><th>Descente</th><th>Slalom</th><th>Course en Ligne</th><th>Marathon</th><th>Kayak-Polo</th><th>Nom</th>  <th>Prénom</th> <th>Date naissance</th><th>Sexe</th><th>Adresse</th><th>Code postal</th><th>Ville</th>
+     <th>Tourisme</th><th>Compétition</th><th>Nom</th>  <th>Prénom</th> <th>Date naissance</th><th>Sexe</th><th>Adresse</th><th>Code postal</th><th>Ville</th>
     </tr> 
  </thead>
  
@@ -41,7 +40,7 @@ Sélectionner ci-dessous un membre pour qui vous désirez introduire une demande
  
   <tr class="<?php echo "$colored  $alreadyAsked"?>"  >
    <?php if($alreadyAsked=='asked'){?>
-   <td colspan=7 align="center"> Demande faite</td>
+   <td colspan=2 align="center"> Demande faite</td>
    <?php }else{?>
    <td> <?php
    		  	echo $this->Form->checkbox('tourism.'.$member['Membership']['id']); 
@@ -52,29 +51,6 @@ Sélectionner ci-dessous un membre pour qui vous désirez introduire une demande
    		  echo $this->Form->checkbox('competition.'.$member['Membership']['id']); 
         ?>
         
-    </td>
-    <td> <?php
-   		  echo $this->Form->checkbox('downriver.'.$member['Membership']['id']); 
-        ?>
-        
-    </td>
-    <td> <?php
-   		  echo $this->Form->checkbox('slalom.'.$member['Membership']['id']); 
-        ?>
-        
-    </td>
-    <td> <?php
-   		  echo $this->Form->checkbox('flatwater.'.$member['Membership']['id']); 
-        ?>
-        
-    </td>
-    <td> <?php
-   		  echo $this->Form->checkbox('marathon.'.$member['Membership']['id']); 
-        ?>
-    </td>
-    <td> <?php
-   		  echo $this->Form->checkbox('polo.'.$member['Membership']['id']); 
-        ?>    
     </td><?php }?>
     <td><?php echo  $member['User']['nom']?></td>
     <td><?php echo  $member['User']['prenom']?></td>
@@ -119,7 +95,7 @@ if ($licencesAValider != null){
 <table class="list">
   <thead> 
     <tr> 
-      <th>Nom</th>  <th>Prénom</th> <th>Mail</th>  <th>Date de la demande</th><th>Discipline</th><th>Valider</th><th>Refuser</th>
+      <th>Nom</th>  <th>Prénom</th> <th>Mail</th>  <th>Date de la demande</th><th>Type</th><th>Valider</th><th>Refuser</th>
     </tr> 
  </thead>
  
@@ -135,7 +111,7 @@ if ($licencesAValider != null){
     <td><?php echo  $licenceAValider['User']['prenom']?></td>
     <td><?php echo $licenceAValider['User']['mail']?></td>
     <td><?php echo $licenceAValider['Membership']['l_created']?></td>
-    <td><?php echo AppController::getLicenceString($licenceAValider['Membership'])?></td>
+    <td><?php echo $licenceAValider['Membership']['l_type']?></td>
     <td><?php 
         echo $this->Html->link('<div class="icon-ok-sign"> </div>',
                          array('controller' => 'licences','action' => 'valider',  $club,$licenceAValider['Membership']['id']),
@@ -170,7 +146,7 @@ if ($licencesAValider != null){
 <table class="list">
   <thead> 
     <tr> 
-      <th>Nom</th>  <th>Prénom</th> <th>Mail</th>  <th>Date de la demande</th><th>Discipline</th>
+      <th>Nom</th>  <th>Prénom</th> <th>Mail</th>  <th>Date de la demande</th><th>Type</th>
     </tr> 
  </thead>
  
@@ -186,8 +162,7 @@ if ($licencesAValider != null){
     <td><?php echo  $licenceValider['User']['prenom']?></td>
     <td><?php echo $licenceValider['User']['mail']?></td>
     <td><?php echo $licenceValider['Membership']['l_created']?></td>
-        <td><?php echo AppController::getLicenceString($licenceValider['Membership'])?></td>
-    
+    <td><?php echo $licenceValider['Membership']['l_type']?></td>
   </tr>
   
   <?php 
@@ -204,7 +179,7 @@ if ($licencesAValider != null){
   
 <h2>Licences <?php echo $currentYear?> produites</h2>
 
-<p>Ci-dessous la liste des licences <?php echo $currentYear?> produites et envoyées par le secrétaire fédéral.</p>
+<p>Ci-dessous la liste des licences <?php echo $currentYear?> produites et enoyées par le secrétaire fédéral.</p>
 
 
 <table class="tablesorter">
@@ -212,7 +187,7 @@ if ($licencesAValider != null){
     <tr> 
       <th class="filter-false" width="10px"></th>
       <th>Nom</th>  <th>Prénom</th> <th>Mail</th>  <th>Date de la demande</th>
-      <th>Date d'envois</th><th>Discipline</th><th>N° Licence</th>
+      <th>Date d'envois</th><th>Type</th><th>N° Licence</th>
     </tr> 
  </thead>
  
@@ -233,8 +208,7 @@ if ($licencesAValider != null){
     <td><?php echo $licenceProduced['User']['mail']?></td>
     <td><?php echo $licenceProduced['Membership']['l_created']?></td>
     <td><?php echo $licenceProduced['Membership']['l_modified']?></td>
-    <td><?php echo AppController::getLicenceString($licenceProduced['Membership'])?></td>
-    
+    <td><?php echo $licenceProduced['Membership']['l_type']?></td>
     <td><?php echo  $licenceProduced['User']['ffc_id'] . '/' . $licenceProduced['Membership']['l_yearly_number']?></td>
   </tr>
   
