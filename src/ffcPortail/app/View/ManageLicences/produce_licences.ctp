@@ -1,5 +1,6 @@
 <?php 
 App::import('Vendor','tcpdf/tcpdf');
+App::import('Controller','App');
 $tcpdf=new TCPDF();
 $tcpdf->setHeaderData('',0,'','',array(0,0,0), array(255,255,255) );
 
@@ -82,17 +83,27 @@ foreach($licences as $licence){
 	$tcpdf->SetFontSize(11);
 	$tcpdf->MultiCell(0,0,'LICENCE/VERGUNNING/LICENZ',0,'C');
 	
-	$licenceType=($licence['Membership']['l_type']=='Competition')?'Compétition':'Pratiquant';
+	$licenceType=($licence['Membership']['l_type']=='Tourisme')?'Tourisme':'Compétition';
 	$tcpdf->SetFont('times');
 	$tcpdf->MultiCell(0,0,$licenceType . ': ' . $licence['User']['ffc_id'].'/'.$licence['Membership']['l_yearly_number'],0,'C');
-	if($licence['Membership']['l_type']=='Competition'){
+ 	
+ 	
+	$tcpdf->SetFontSize(12);
+	if($licence['Membership']['l_type']=='Competition'||$licence['Membership']['l_type']=='Disciplines'){
 	$tcpdf->SetFontSize(12);
 	$tcpdf->MultiCell(0,0,'Catégorie: '.$licence['Membership']['category'].' '.$licence['User']['sexe'],0,'C');
 	}
 	else{
 		$tcpdf->Ln();
 	}
-    $tcpdf->Ln();		
+	$tcpdf->SetFontSize(8);
+	
+	if($licence['Membership']['l_type']=='Disciplines'){
+		$tcpdf->MultiCell(0,0,AppController::getLicenceString($licence['Membership']),0,'C');
+	}
+	else{
+		$tcpdf->Ln();
+	}
 	$tcpdf->SetFontSize(10);
 	$tcpdf->MultiCell(0,0,'Le secrétaire sportif',0,'L');
 	
