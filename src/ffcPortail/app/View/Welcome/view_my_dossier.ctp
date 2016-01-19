@@ -89,15 +89,28 @@ foreach($memberships as $membership){?>
 <table width="90%" class="form">
    <tr>
       <td>Type de Licence</td>
-    
+      <td></td>
    </tr>
    <tr>
       <td><?php
       echo $this->Form->input( 'id'.$membership['Membership']['club'], array( 'value' => $membership['Membership']['id'],'type'=>'hidden') );  
-      $options=array('Competition'=>'Compétition','Tourisme'=>'Tourisme');
+      $options=array('Tourisme'=>'Tourisme','Competition'=>'Compétition générale', 'Disciplines'=>'Disciplines spécifiques');
       $attributes=array('legend'=>false);
       echo $this->Form->radio('type'.$membership['Membership']['club'],$options,$attributes);
       ?>
+      </td>
+      <td>
+      <div id=<?php echo 'comp_types_'.$membership['Membership']['club']?>>
+      	<?php 
+      	echo $this->Form->select(
+      			'comp_type'.$membership['Membership']['club'],$possible_competition_licences,array(
+   				'multiple' => 'checkbox',
+				)
+      			);
+      	?>
+      	
+      	</div>
+      	
       </td>
    </tr>
    <tr>
