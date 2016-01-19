@@ -17,8 +17,8 @@ array('url'=>'/ManageMembers/addMember/'.$club
       <td><?php echo $this->Form->input('User.date_naissance', array(
       'label' => 'Date de naissance',
       'dateFormat' => 'DMY',
-      'minYear' => date('Y') - 95,
-      'maxYear' => date('Y') - 7,
+      'minYear' => date('Y') - 99,
+      'maxYear' => date('Y') - 0,
       )); ?></td>
       <td><?php echo $this->Form->input('User.lieu_de_naissance',array('label'=>'Lieu de naissance','size'=>'60'))?></td>
       <td><?php    $options=array('H'=>'Homme','F'=>'Femme'); 
