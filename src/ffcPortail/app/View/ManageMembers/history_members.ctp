@@ -31,7 +31,10 @@
     });
    
    </script>
-<?php for($i=Date('Y')-4;$i<=Date('Y');$i++){?>
+<?php 
+$years = array_keys($history);
+foreach ($years as $i){
+?>
 	<table class="form" width="1200">
 	<tr><td><strong>Membres <?php echo $i;?></strong></td></tr>
 	<tr>
