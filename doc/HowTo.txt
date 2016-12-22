@@ -1,0 +1,16 @@
+Pour ouvrir une nouvelle année 
+*******************************
+
+adapter class AppController extends Controller {
+
+public $currentYear = 2017;  /* mettre ici l'année en cours */
+
+Adapter et exécuter sur la db la query suivante qui reconduit tout les secrétaires de club d'une année vers une suivante.
+
+
+insert into memberships (`year`,`user_id`,`club`,`is_secretary`)
+select '2017',user_id,club,is_secretary from memberships 
+where is_secretary=1 and year=2016
+
+
+UPDATE `constants` SET `value` = '0' WHERE `constants`.`name` = 'yearly_number';

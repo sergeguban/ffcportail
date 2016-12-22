@@ -35,7 +35,7 @@ class AppController extends Controller {
 
 	var $uses= array('Membership');
 	
-	public $currentYear = 2016;
+	public $currentYear = 2017;
 
 	public $components = array(
         'Session','Acl',
