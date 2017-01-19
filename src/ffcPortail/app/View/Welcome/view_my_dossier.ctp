@@ -86,31 +86,43 @@ foreach($memberships as $membership){?>
                                           )
                                           
                                           )); ?>
-<table width="90%" class="form">
+<table width="90%"  cellspacing="10px" cellpadding="" >
    <tr>
       <td>Type de Licence</td>
-      <td></td>
    </tr>
    <tr>
-      <td><?php
+      <td>
+      <div class="discipline">
+      <?php
       echo $this->Form->input( 'id'.$membership['Membership']['club'], array( 'value' => $membership['Membership']['id'],'type'=>'hidden') );  
-      $options=array('Tourisme'=>'Tourisme','Competition'=>'Compétition générale', 'Disciplines'=>'Disciplines spécifiques');
+      $options=array('Tourisme'=>'Tourisme','Competition'=>'Compétition générale');
       $attributes=array('legend'=>false);
       echo $this->Form->radio('type'.$membership['Membership']['club'],$options,$attributes);
       ?>
+      </div>
       </td>
-      <td>
-      <div id=<?php echo 'comp_types_'.$membership['Membership']['club']?>>
-      	<?php 
-      	echo $this->Form->select(
-      			'comp_type'.$membership['Membership']['club'],$possible_competition_licences,array(
-   				'multiple' => 'checkbox',
-				)
-      			);
-      	?>
-      	
-      	</div>
-      	
+      
+   </tr>
+   <tr>
+    <td>
+     <div class="discipline">
+      <?php
+      echo $this->Form->input( 'id'.$membership['Membership']['club'], array( 'value' => $membership['Membership']['id'],'type'=>'hidden') );  
+      $options=array('Disciplines'=>'Disciplines spécifiques');
+      $attributes=array('legend'=>false);
+      echo $this->Form->radio('type'.$membership['Membership']['club'],$options,$attributes);
+      ?>
+	      <div id=<?php echo 'comp_types_'.$membership['Membership']['club']?>   >
+	      	<?php 
+	      	echo $this->Form->select(
+	      			'comp_type'.$membership['Membership']['club'],$possible_competition_licences,array(
+	   				'multiple' => 'checkbox','class' => 'disciplineCheckbox'
+					)
+	      			);
+	      	?>
+	      	
+      	  </div>
+       </div>
       </td>
    </tr>
    <tr>
