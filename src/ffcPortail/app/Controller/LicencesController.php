@@ -29,7 +29,12 @@ class LicencesController extends AppController {
 	
 	public function add($club) {
 		if ($this->request->is('post')) {
-			if(strcmp($this->request->data['Licence']['type'.$club],'Disciplines')==0&&empty($this->request->data['Licence']['comp_type'.$club])){
+			if(strcmp($this->request->data['Licence']['type'.$club],'Competition')!=0&&strcmp($this->request->data['Licence']['type'.$club],'Tourisme')!=0&&strcmp($this->request->data['Licence']['type'.$club],'Disciplines')!=0){
+				$this->Session->setFlash(__('Votre enregistrement a échoué, marquez le type de la licence.'));
+				$this->redirect('/welcome/viewMyDossier');
+
+			}
+			else if(strcmp($this->request->data['Licence']['type'.$club],'Disciplines')==0&&empty($this->request->data['Licence']['comp_type'.$club])){
 				$this->Session->setFlash(__('Votre enregistrement a échoué, marquez les disciplines pour la licence.'));
 				$this->redirect('/welcome/viewMyDossier');
 				
