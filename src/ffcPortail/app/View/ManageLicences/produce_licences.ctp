@@ -83,7 +83,7 @@ foreach($licences as $licence){
 	$tcpdf->SetFontSize(11);
 	$tcpdf->MultiCell(0,0,'LICENCE/VERGUNNING/LICENZ',0,'C');
 	
-	$licenceType=($licence['Membership']['l_type']=='Tourisme')?'Tourisme':'Compétition';
+	$licenceType=($licence['Membership']['l_type']=='Tourisme')?'Pratiquant':'Compétition';
 	$tcpdf->SetFont('times');
 	$tcpdf->MultiCell(0,0,$licenceType . ': ' . $licence['User']['ffc_id'].'/'.$licence['Membership']['l_yearly_number'],0,'C');
  	
