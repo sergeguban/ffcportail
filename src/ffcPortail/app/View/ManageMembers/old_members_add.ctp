@@ -38,6 +38,7 @@
 <table class="tablesorter" >
   <thead> 
     <tr> 
+     <th>Derni&egrave;re ann&eacute;e</th>
      <th>FFC identifiant</th>
      <th>Nom</th>  <th>Prénom</th> <th>Date naissance</th><th>Lieu de naissance</th><th>Sexe</th><th>Adresse</th><th>Code postal</th><th>Ville</th>
      <th>Mail</th><th>Téléphone fixe</th><th>Gsm</th><th>R&eacute;inscrire </th>
@@ -53,6 +54,7 @@
   ?>
  
   <tr class="<?php echo $colored?>"  >
+    <td><?php echo $member['Membership']['year']?></td>
   	<td><strong><?php echo  $member['User']['ffc_id']?></strong></td>
     <td><?php echo  $member['User']['nom']?></td>
     <td><?php echo  $member['User']['prenom']?></td>

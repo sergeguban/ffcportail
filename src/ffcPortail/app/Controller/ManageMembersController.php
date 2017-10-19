@@ -268,7 +268,8 @@ class ManageMembersController extends AppController {
    }
    public function old_members_add($club){
    	   $this->security_check($club);
-   	   $users=$this->Membership->loadHistory($club,$this->currentYear-1);
+   	   //$users=$this->Membership->loadHistory($club,$this->currentYear-1);
+   	   $users=$this->Membership->loadHistory($club,'all'); //get most recent memberships of all members within the history of the club
    	   foreach($users as &$user){
    	   	    $user['already_member']=$this->Membership->isMember($user['User']['id'],$club,$this->currentYear);
    	   }

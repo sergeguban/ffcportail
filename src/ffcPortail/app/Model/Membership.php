@@ -104,8 +104,16 @@ private $categories = array(10 => "pupil",
 		return $this->hasAny($conditions);
 	}
 	public function loadHistory($club,$year){
-		$db= $this->getDataSource();
-		return $db->fetchAll('SELECT Membership.*,User.* from memberships as Membership left join users as User on Membership.user_id =User.id where Membership.year=? and Membership.club=?',array($year,$club));
+		$db = $this->getDataSource();
+		if ($year == 'all'){ //get most recent memberships of all members within the history of the club
+			return $db->fetchAll(
+					'SELECT Membership.*,User.* from memberships as Membership left join users as User on Membership.user_id=User.id 
+					where Membership.club=? AND Membership.id 
+						= (SELECT t2.id FROM memberships t2 WHERE t2.user_id = Membership.user_id ORDER BY t2.year DESC LIMIT 1)
+					ORDER BY Membership.year DESC',array($club));
+		}else{
+			return $db->fetchAll('SELECT Membership.*,User.* from memberships as Membership left join users as User on Membership.user_id =User.id where Membership.year=? and Membership.club=?',array($year,$club));	
+		}
 	}
 	public function loadClubSecretaries($year){
 		$db=$this->getDataSource();
