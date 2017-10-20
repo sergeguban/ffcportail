@@ -6,18 +6,23 @@ Vous pouvez g&eacute;n&eacute;rer des rapports annuels des membres, clubs, ... e
 <div>
 <?php echo $this->Form->create(null, array('url'=> array('controller'=>'ManageLicences',
                                              'action' => 'generateReport'))); ?>
-<b>Choisissez les ann&eacute;es pour lequelles vous voulez un rapport:</b>
+<b>Choisissez les ann&eacute;es pour lesquelles vous voulez un rapport:</b>
 <br/>
 <br/>
 	<table>
 		<tr>
 		<?php for($year=2014;$year<=date('Y');$year++){?>
 			<td><?php echo $year;?></td>
-			<td><?php echo $this->Form->checkbox('y'+$year);?></td>			
 		<?php }?>
 		<td>Historique</td>
-		<td><?php echo $this->Form->checkbox('history')?></td>
+		
 			
+		</tr>
+		<tr>
+		<?php for($year=2014;$year<=date('Y');$year++){?>
+			<td align='center' style="text-align:center"><?php echo $this->Form->checkbox('y'+$year,array('style'=>'float:none'));?></td>			
+		<?php }?>
+		<td align='center' style="text-align:center"><?php echo $this->Form->checkbox('history',array('style'=>'float:none'))?></td>
 		</tr>
 	</table>
 <br/>
@@ -29,9 +34,14 @@ Vous pouvez g&eacute;n&eacute;rer des rapports annuels des membres, clubs, ... e
 		<tr>
 		<?php foreach($clubs as $club){
 		?>
-		<td><?php echo $club['Club']['id']?></td>
-		<td><?php echo $this->Form->checkbox($club['Club']['id'])?></td>
-		<td>|</td>
+		<td align='center'><?php echo $club['Club']['id']?></td>
+		<?php }?>
+		</tr>
+		<tr>
+		<?php foreach($clubs as $club){
+		?>
+		<td align='center'><?php echo $this->Form->checkbox($club['Club']['id'],array('style'=>'float:none'))?></td>
+		
 		<?php }?>
 		</tr>
 	</table>
