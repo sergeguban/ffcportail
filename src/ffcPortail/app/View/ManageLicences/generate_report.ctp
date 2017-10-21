@@ -39,10 +39,12 @@ $tcpdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
 if(isset($stats)){
 	foreach($years as $year){
-		$tcpdf->AddPage();
-		$tcpdf->SetFont('','BU',14);
-		$tcpdf->Write(8,'Statistiques '.$year,'',false,'C');
-		$tcpdf->Ln();
+		if(array_keys($stats)[0]!='FFC'){
+			$tcpdf->AddPage();
+			$tcpdf->SetFont('','BU',14);
+			$tcpdf->Write(8,'Statistiques '.$year,'',false,'C');
+			$tcpdf->Ln();
+		}
 		$mod=0;
 		foreach($stats as $k=>$v){
 			//debug($v);
@@ -191,10 +193,12 @@ if(isset($stats)){
 	}
 	
 	if($his){
-		$tcpdf->AddPage();
-		$tcpdf->SetFont('','BU',14);
-		$tcpdf->Write(8,'Historiques','',false,'C');
-		$tcpdf->Ln();
+		if(array_keys($stats)[0]!='FFC'){
+			$tcpdf->AddPage();
+			$tcpdf->SetFont('','BU',14);
+			$tcpdf->Write(8,'Historiques','',false,'C');
+			$tcpdf->Ln();
+		}
 		$mod=0;
 		foreach($stats as $k=>$v){
 			//debug($v);

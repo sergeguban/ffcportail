@@ -2,7 +2,7 @@
 class Membership extends AppModel{
 	var $belongsTo = array("User");
 	
-private $categories = array(10 => "pupil",
+private $categories = array(10 => "pupille",
 								12 => "minime",
 								14 => "cadet",
 								16 => "aspirant",
