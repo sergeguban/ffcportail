@@ -1,23 +1,26 @@
 <?php
 class ManageLicencesController extends AppController {
 
-	var $uses = array('Membership','User','Constant');
+	var $uses = array('Membership','User','Constant','Club');
+	
 
 	public $components = array('Session');
-
+	
 	public function beforeFilter() {
 		$this->Auth->deny('licence','members','download');
+		
 	}
 
 	public function beforeRender(){
 		AppController::beforeRender();
 		$subMenu = array(
 		array ("Licences","/ManageLicences/licence",  $this->params['action'] == 'licence'  ),
-		array ("Nouveaux Membres","/ManageLicences/newMembers",$this->params['action'] == 'newMembers' || $this->params['action'] == 'memberControl')
+		array ("Nouveaux Membres","/ManageLicences/newMembers",$this->params['action'] == 'newMembers' || $this->params['action'] == 'memberControl'),
+		array ("Rapport","/ManageLicences/chooseReport", $this->params['action'] == 'chooseReport')
 		);
 		$this->set('subMenu',$subMenu);
 
-		if($this->params['action'] == 'produceLicences' || $this->params['action']   =='reproduceLicence'){
+		if($this->params['action'] == 'produceLicences' || $this->params['action']   =='reproduceLicence' || $this->params['action']   =='generateReport'){
 			$this->layout = 'pdf';
 		} else {
 			$this->layout = 'connected';
@@ -181,6 +184,78 @@ class ManageLicencesController extends AppController {
 		$this->User->save($user);
 		$this->redirect('/ManageLicences/newMembers');
 
+	}
+	
+	/* report generation */
+	
+	public function chooseReport(){
+		$this->set('clubs',$this->Club->find('all',array('fields'=>array('id'))));
+	
+	}
+	
+	public function generateReport(){
+		$data=$this->data['Membership'];
+		$years=array();
+		$clubs_chosen=array();
+		$clubs=$this->Club->find('all',array('fields'=>array('id')));
+		for($year=2014;$year<=date('Y');$year++){
+			if($data['y'+$year]==1){
+				array_push($years,$year);
+				
+			}
+		}
+		
+		$this->set('years',$years);
+		//$this->Session->setFlash(json_encode($years));
+		foreach($clubs as $club){
+			if($data[$club['Club']['id']]==1){
+				array_push($clubs_chosen,$club['Club']['id']);
+			}
+		}
+		$fed=$data['fed'];
+		$his=$data['history'];
+		
+		if($his){
+			
+			$years_to_consider = array();
+			for($year=2014;$year<=date('Y');$year++)array_push($years_to_consider,$year);
+			
+		}else $years_to_consider = $years;
+		
+		$stats=array();
+		$members=array();
+		$mem_fed=array();
+		$stats_fed=array();
+	
+		
+		foreach($clubs_chosen as $club){
+			$members[$club] = array();
+			$stats[$club] = array();
+			foreach($years_to_consider as $year){
+				$members[$club][$year]=$this->Membership->loadHistory($club,$year);
+				$stats[$club][$year]=$this->Membership->loadStats($club,$year);
+			}
+	
+		}
+		if($fed==1){
+			$members['FFC']=array();
+			$stats['FFC']=array();
+			foreach($years_to_consider as $year){
+				$members['FFC'][$year]=$this->Membership->loadHistory('all',$year);
+				$stats['FFC'][$year]=$this->Membership->loadStats('all',$year);
+			}
+		}
+		
+		
+		
+		
+		$this->set('stats',$stats);
+		$this->set('members',$members);
+		$this->set('years_to_consider',$years_to_consider);
+		
+		$this->set('his',$his);
+		$this->set('fed',$fed);
+		
 	}
 	
 
