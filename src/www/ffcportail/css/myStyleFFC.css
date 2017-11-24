@@ -628,3 +628,21 @@ p.error em {
 .success {
 	color: #fff;
 }
+
+div.disciplineCheckbox{
+	display: inline;
+}
+
+div.disciplineCheckbox label{
+	display: inline;
+}
+div.disciplineCheckbox input[type=checkbox] {
+	clear: none;
+	float: none;
+	margin: 2px 2px 2px 2px;
+	width: auto;
+}
+
+div.discipline {
+	background-color: rgb(242, 242, 242);
+}
