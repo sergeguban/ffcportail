@@ -48,7 +48,7 @@ foreach($licences as $licence){
 	$tcpdf->SetFillColor(0,0,0);
 	$tcpdf->SetTextColor(255,255,255);
 	$tcpdf->SetFontSize(14);
-	$tcpdf->MultiCell(0,0,$licence['Membership']['year'],1,'C',1,0,'','', true,0, false, true, 0);
+	$tcpdf->MultiCell(0,0,'Membre/Lid/Mitlied '.$licence['Membership']['year'],1,'C',1,0,'','', true,0, false, true, 0);
 	
 	
 	$tcpdf->SetTextColor(0,0,0);
@@ -77,6 +77,10 @@ foreach($licences as $licence){
 	$tcpdf->MultiCell(0,0,'Club',0,'C');
 	$tcpdf->SetFontSize(14);
 	$tcpdf->MultiCell(0,0,$licence['Membership']['club'],1,'C');
+	$tcpdf->SetFontSize(10);
+	$tcpdf->MultiCell(0,0,'Pratiquant eau vive',0,'C');
+	
+	$tcpdf->SetFontSize(5);
 	
 	$tcpdf->Ln();
 	$tcpdf->SetFont('timesB');
