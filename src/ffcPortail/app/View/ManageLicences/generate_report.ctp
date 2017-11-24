@@ -137,7 +137,7 @@ if(isset($stats)){
 			$tcpdf->WriteHTML('<p>&nbsp;Comp&eacute;titeurs par cat&eacute;gorie:<p>',0);
 				
 			$tcpdf->SetFont('','',10);
-			$header = array('Sexe','Pupil','Minime','Cadet','Aspirant','Junior','Sénior','Vétéran 1','Vétéran 2','Vétéran 3','Total');
+			$header = array('Sexe','Pupille','Minime','Cadet','Aspirant','Junior','Sénior','Vétéran 1','Vétéran 2','Vétéran 3','Total');
 			$w = array(.05,.1,.1,.1,.1,.1,.1,.1,.1,.1,.05);
 			$tw = $tcpdf->GetPageWidth() -$tcpdf->getMargins()['left']-$tcpdf->getMargins()['right'];
 				
@@ -277,7 +277,7 @@ if(isset($stats)){
 			$tcpdf->WriteHTML('<p>&nbsp;Comp&eacute;titeurs par cat&eacute;gorie:<p>',0);
 		
 			$tcpdf->SetFont('','',8);
-			$header = array('Année','Pupil','Minime','Cadet','Aspirant','Junior','Sénior','Vétéran 1','Vétéran 2','Vétéran 3','Total');
+			$header = array('Année','Pupille','Minime','Cadet','Aspirant','Junior','Sénior','Vétéran 1','Vétéran 2','Vétéran 3','Total');
 			$w = array(.05,.1,.1,.1,.1,.1,.1,.1,.1,.1,.05);
 				
 			$tw = $tcpdf->GetPageWidth() -$tcpdf->getMargins()['left']-$tcpdf->getMargins()['right'];
