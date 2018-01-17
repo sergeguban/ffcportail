@@ -122,8 +122,8 @@ private $ageCategories = array(12=>0,18=>1,25=>2,35=>3,200=>4);
 				return $db->fetchAll(
 						'SELECT Membership.*,User.* from memberships as Membership left join users as User on Membership.user_id=User.id 
 						where Membership.club=? AND Membership.id 
-							= (SELECT t2.id FROM memberships t2 WHERE t2.user_id = Membership.user_id ORDER BY t2.year DESC LIMIT 1)
-						ORDER BY Membership.year DESC',array($club));
+							= (SELECT t2.id FROM memberships t2 WHERE t2.user_id = Membership.user_id AND t2.club=? ORDER BY t2.year DESC LIMIT 1)
+						ORDER BY Membership.year DESC',array($club,$club));
 			}else{
 				return $db->fetchAll('SELECT Membership.*,User.* from memberships as Membership left join users as User on Membership.user_id =User.id where Membership.year=? and Membership.club=?',array($year,$club));	
 			}
