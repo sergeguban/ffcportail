@@ -18,3 +18,23 @@ select '2017',user_id,club,is_secretary from memberships
 where is_secretary=1 and year=2016;
 
 UPDATE `constants` SET `value` = '0' WHERE `constants`.`name` = 'yearly_number';
+
+Pour créer un nouveau club et lui attribuer un secrétaire
+*********************************************************
+
+dans la table club ajouter le club , imaginons NKCC
+Si le user n'est pas encore existant , ajouter le user dans la table User
+Ajouter dans membership ce user pour l'année en cours
+Demander au user de se connecter, ou vous prenez son identité, et dans la vue Mon Dossier, introduire une demande pour etre secretétaire du club.
+Vous connecter en tant que admin, valider la demande
+
+Cette procédure a échoué pour Yves NKCC en 2018, on avait activé la nouvelle année 2019, via la constante
+public $currentYear = 2019;
+nous étions encore en 2018, la demande de notification n'était pas bien insérer dans la DB, il manquait user id et type de demande.
+Un bug lié à cette ligne
+https://github.com/sergeguban/ffcportail/blob/master/src/ffcPortail/app/Controller/NotificationsController.php#L42
+Comme Yves n'était pas associé à ce nouveau club en 2018 on passait pas la condition 
+A corriger
+
+
+
