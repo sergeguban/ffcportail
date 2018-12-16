@@ -39,7 +39,7 @@ class NotificationsController extends AppController {
       }
 
       $id=$this->Session->read('Auth.User.id');
-      foreach($this->Membership->getMembershipsByUserByYear($id,date('Y')) as $membership){
+      foreach($this->Membership->getMembershipsByUserByYear($id,$this->currentYear) as $membership){
       	if (array_key_exists('clubSecretaire',  $this->request->data)&& array_key_exists($membership['Membership']['club'],$this->request->data['clubSecretaire'])&&$this->request->data['clubSecretaire'][$membership['Membership']['club']]){
          	array_push($notifications, $this->createNotification('clubSecretaire',$membership['Membership']['club']));
       	}
