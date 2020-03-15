@@ -60,9 +60,26 @@ private $ageCategories = array(12=>0,18=>1,25=>2,35=>3,200=>4);
 		$this->addCategory($licencesCompetition,$year);
 		return $licencesCompetition;
 	}
+	
+	/**
+	 * used by Rest
+	 * 
+	 * Enter description here ...
+	 * @param unknown_type $year
+	 * @param unknown_type $club
+	 */
+	public function getAllLicenceCompetitionforOneClub($year, $club){
+		$db = $this->getDataSource();
+		$licencesCompetition = $db->fetchAll( 'SELECT Membership.user_id ,Membership.club,  Membership.l_yearly_number, User.ffc_id, User.nom, User.prenom , User.date_naissance, User.sexe from  memberships as Membership left join users as User on Membership.user_id = User.id  where Membership.licence = ? and Membership.l_status = ? and (Membership.l_type= ? )  and Membership.year =?  and Membership.club = ? order by prenom, nom  ',
+		array(1, 'produced','Competition',$year, $club));
+
+		$this->addCategory($licencesCompetition,$year);
+		return $licencesCompetition;
+	}
+	
 
 
-	private function addCategory(&$licences,$year ){
+	public function addCategory(&$licences,$year ){
 		foreach ($licences as &$licence) {
 			$licence['Membership']['category'] = $this->getCategoryFromBirthDate($licence['User']['date_naissance'],$year);
 		}
