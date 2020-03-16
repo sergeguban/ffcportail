@@ -1,7 +1,9 @@
 <?php
 class Membership extends AppModel{
 	var $belongsTo = array("User");
+
 	
+// $categories used to define competition category
 private $categories = array(10 => "pupille",
 								12 => "minime",
 								14 => "cadet",
@@ -12,6 +14,8 @@ private $categories = array(10 => "pupille",
 								54 => "vétéran 2",
 								110 => "vétéran 3"
 								);
+								
+// $ageCategories is used for ADEPS STAT
 private $ageCategories = array(12=>0,18=>1,25=>2,35=>3,200=>4);
 
 
