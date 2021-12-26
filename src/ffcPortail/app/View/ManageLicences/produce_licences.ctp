@@ -41,7 +41,7 @@ foreach($licences as $licence){
 	$tcpdf->Ln();
 	
 	$tcpdf->SetFont('timesB','U');
-	$tcpdf->MultiCell(0,0,'FEDERATION ROYAL BELGE DE CANOE',1,'C',0,0,'','',true,0,false,true,0);
+	$tcpdf->MultiCell(0,0,'FEDERATION ROYALE BELGE DE CANOE',1,'C',0,0,'','',true,0,false,true,0);
 	$tcpdf->Ln();
 	
 	$tcpdf->SetFont('timesB','');
