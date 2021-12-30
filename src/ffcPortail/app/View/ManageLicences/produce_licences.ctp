@@ -41,14 +41,24 @@ foreach($licences as $licence){
 	$tcpdf->Ln();
 	
 	$tcpdf->SetFont('timesB','U');
-	$tcpdf->MultiCell(0,0,'FEDERATION ROYAL BELGE DE CANOE',1,'C',0,0,'','',true,0,false,true,0);
+	$tcpdf->MultiCell(0,0,'FEDERATION ROYALE BELGE DE CANOE',1,'C',0,0,'','',true,0,false,true,0);
 	$tcpdf->Ln();
 	
 	$tcpdf->SetFont('timesB','');
 	$tcpdf->SetFillColor(0,0,0);
 	$tcpdf->SetTextColor(255,255,255);
 	$tcpdf->SetFontSize(14);
-	$tcpdf->MultiCell(0,0,'Membre/Lid/Mitlied '.$licence['Membership']['year'],1,'C',1,0,'','', true,0, false, true, 0);
+	
+	if($licence['Membership']['l_polo']==1)
+	{
+		$tcpdf->MultiCell(0,0,'Membre/Lid/Mitlied '.$licence['Membership']['year'].'-'.($licence['Membership']['year']+1),1,'C',1,0,'','', true,0, false, true, 0);
+	}
+	else 
+	{
+		$tcpdf->MultiCell(0,0,'Membre/Lid/Mitlied '.$licence['Membership']['year'],1,'C',1,0,'','', true,0, false, true, 0);
+		
+	}
+	
 	
 	
 	$tcpdf->SetTextColor(0,0,0);
