@@ -37,6 +37,7 @@ class AppController extends Controller {
 	
 	public $currentYear = 2022;
 
+
 	public $components = array(
         'Session','Acl',
         'Auth' => array(

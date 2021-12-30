@@ -43,8 +43,9 @@ class RestController extends AppController {
 				
 			array_push($licences,$licence);
 		}
-				
-		$this->set('licences', $licences);
+			
+		header('Access-Control-Allow-Origin: *'); // to allow other website to integrate the result of a call to this service
+    	$this->set('licences', $licences);
 		$this->layout ='rest';
 		$this->render('view_licence');
 	}
