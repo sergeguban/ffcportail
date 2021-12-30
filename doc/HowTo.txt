@@ -7,6 +7,8 @@ public $currentYear = 2017;  /* mettre ici l'année en cours */
 
 Adapter et exécuter sur la db la query suivante qui reconduit tout les secrétaires de club d'une année vers une suivante.
 
+Déployer la nouvelle release
+
 
 pour reconduire les secrétaires de club 
 ---------------------------------------
@@ -27,6 +29,9 @@ Ensuite exécuter la ligne suivante
 UPDATE `constants` SET `value` = '0' WHERE `constants`.`name` = 'yearly_number';
 
 si tout va bien =>  1 ligne affectée. (traitement en 0.0007 seconde(s).)
+
+
+fait le 30/12/2021 => 31 insert => update constant ok !
 
 
 Pour créer un nouveau club et lui attribuer un secrétaire
