@@ -13,11 +13,21 @@ pour reconduire les secrétaires de club
 
 Attention changer les dates , ici un exemple pour reconduire en 2017 les secrétaires de 2016
 
+allez dans phpmydamin de ffcportail DB;
+copier/coller les 3 lignes ci-dessous - !! pas oublier de changer les dates !!
+
 insert into memberships (`year`,`user_id`,`club`,`is_secretary`)
-select '2017',user_id,club,is_secretary from memberships 
-where is_secretary=1 and year=2016;
+select '2021',user_id,club,is_secretary from memberships 
+where is_secretary=1 and year=2020;
+
+Si tout va bien, vous avez un message du genre => 30 lignes insérées.
+
+Ensuite exécuter la ligne suivante 
 
 UPDATE `constants` SET `value` = '0' WHERE `constants`.`name` = 'yearly_number';
+
+si tout va bien =>  1 ligne affectée. (traitement en 0.0007 seconde(s).)
+
 
 Pour créer un nouveau club et lui attribuer un secrétaire
 *********************************************************
@@ -36,5 +46,15 @@ https://github.com/sergeguban/ffcportail/blob/master/src/ffcPortail/app/Controll
 Comme Yves n'était pas associé à ce nouveau club en 2018 on passait pas la condition 
 A corriger
 
+new club CKOA : Michel Andre 
 
 
+
+Ajouter un arbitre non membre FFC , VKKF par exemple
+*****************************************************
+
+serge :créer dans le gui un nouveau membre CRBK , Hartwin par exemple
+se connecter avec son user/pwd reset Hartwin
+Hartwin : demande d'^^etre arbitre
+Serge ou un admin accepte
+allez dans la DB , retirer de la table membership le membre Hartwin 

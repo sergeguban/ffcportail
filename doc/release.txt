@@ -6,3 +6,9 @@ une seul erreur lors de ce passage sur la gestion de session
 comment les lignes //'session.auto_start' => 0, around line 560
 
 lib\Cake\Model\Datasource\CakeSession.php
+
+12/2021
+
+- passage 2022
+- licence kayak polo 
+- RestService pour inscription course sur site crbk
