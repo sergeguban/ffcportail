@@ -1,7 +1,7 @@
 Pour ouvrir une nouvelle année 
 *******************************
 
-adapter class AppController extends Controller {
+adapter class /ffcPortail/src/ffcPortail/app/Controller/AppController.php
 
 public $currentYear = 2017;  /* mettre ici l'année en cours */
 
@@ -10,8 +10,24 @@ Adapter et exécuter sur la db la query suivante qui reconduit tout les secréta
 Déployer la nouvelle release
 
 
-pour reconduire les secrétaires de club 
----------------------------------------
+pour faire une release
+-----------------------
+C:\flexdev\prj\ffcportail\bin\ffcportail>createBuildWithAnt.bat
+
+dist:
+    [mkdir] Created dir: C:\flexdev\prj\ffcportail\build\ffcportail-2022-12-20_08_41_58
+     [copy] Copying 221 files to C:\flexdev\prj\ffcportail\build\ffcportail-2022-12-20_08_41_58\ffcportail\app
+     [copy] Copying 393 files to C:\flexdev\prj\ffcportail\build\ffcportail-2022-12-20_08_41_58\www\ffcportail
+     [copy] Copying 2 files to C:\flexdev\prj\ffcportail\build\ffcportail-2022-12-20_08_41_58\ffcportail\app
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+
+Utiliser un ftp client filezila par exemple, et déployer le contenu
+
+
+pour reconduire les secrétaires de club d'une année à l'autre
+----------------------------------------------------------------
 
 Attention changer les dates , ici un exemple pour reconduire en 2017 les secrétaires de 2016
 
@@ -19,8 +35,10 @@ allez dans phpmydamin de ffcportail DB;
 copier/coller les 3 lignes ci-dessous - !! pas oublier de changer les dates !!
 
 insert into memberships (`year`,`user_id`,`club`,`is_secretary`)
-select '2021',user_id,club,is_secretary from memberships 
-where is_secretary=1 and year=2020;
+select '--YYYY-la nouvelle année--',user_id,club,is_secretary from memberships 
+where is_secretary=1 and year=--YYYY-l'année actuelle--;
+
+remplacer --YYYY-l'année actuelle-- par 2023 par exemple
 
 Si tout va bien, vous avez un message du genre => 30 lignes insérées.
 
